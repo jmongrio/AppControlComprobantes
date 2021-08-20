@@ -80,8 +80,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="MVVM\ModelView\" />
     <Folder Include="MVVM\Model\" />
-    <Folder Include="MVVM\View-Model\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Img\factura.ico" />
