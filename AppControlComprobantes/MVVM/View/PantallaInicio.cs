@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AppControlComprobantes
+namespace AppControlComprobantes.MVVM.View
 {
-    public partial class Form1 : Form
+    public partial class PantallaInicio : Form
     {
-        public Form1()
+        public PantallaInicio()
         {
             InitializeComponent();
         }
