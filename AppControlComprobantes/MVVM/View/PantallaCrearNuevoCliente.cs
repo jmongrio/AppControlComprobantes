@@ -16,5 +16,19 @@ namespace AppControlComprobantes.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+            var pUsuaro = (PantallaUsuario)Tag;
+            pUsuaro.Show();
+            Close();
+        }
+
+        private void btnAgregarNuevoCliente_Click(object sender, EventArgs e)
+        {
+            var pUsuaro = (PantallaCrearNuevoCliente)Tag;
+            pUsuaro.Show();
+            Close();
+        }
     }
 }

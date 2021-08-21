@@ -23,5 +23,13 @@ namespace AppControlComprobantes.MVVM.View
             pInicio.Show();
             Close();
         }
+
+        private void btnNuevoCliente_Click(object sender, EventArgs e)
+        {
+            PantallaCrearNuevoCliente pCliente = new PantallaCrearNuevoCliente();
+            pCliente.Tag = this;
+            pCliente.Show(this);
+            Hide();
+        }
     }
 }
