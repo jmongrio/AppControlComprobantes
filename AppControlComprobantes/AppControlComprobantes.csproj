@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,6 +56,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\ModelView\Seguridad.cs" />
+    <Compile Include="MVVM\Model\Cliente.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\ComprobanteDeposito.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\ComprobantesEntidad.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprobantesEntidad.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\ComprobantesEntidad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\ComprobantesEntidad.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComprobantesEntidad.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\ContextoComprobante.cs" />
+    <Compile Include="MVVM\Model\TipoCedula.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\TipoMoneda.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\TipoPermisos.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\Usuario.cs">
+      <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\PantallaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +110,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="MVVM\Model\ComprobantesEntidad.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ComprobantesEntidad.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MVVM\Model\ComprobantesEntidad.edmx.diagram">
+      <DependentUpon>ComprobantesEntidad.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -80,12 +131,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Img\factura.ico" />
     <Content Include="Img\LogoEmpresa.png" />
+    <Content Include="MVVM\Model\ComprobantesEntidad.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ComprobantesEntidad.Context.cs</LastGenOutput>
+      <DependentUpon>ComprobantesEntidad.edmx</DependentUpon>
+    </Content>
+    <Content Include="MVVM\Model\ComprobantesEntidad.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ComprobantesEntidad.edmx</DependentUpon>
+      <LastGenOutput>ComprobantesEntidad.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
