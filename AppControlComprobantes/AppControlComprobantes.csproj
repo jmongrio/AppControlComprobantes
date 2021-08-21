@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ModelView\Seguridad.cs" />
     <Compile Include="MVVM\View\PantallaInicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,7 +81,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="MVVM\ModelView\" />
     <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
