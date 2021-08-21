@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RegistroComprobantesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCedulaRef" Type="int" Nullable="false" />
+          <Property Name="NumeroCedula" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="200" />
+          <Property Name="Telefono" Type="varchar" MaxLength="60" />
+          <Property Name="Direccion" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <EntityType Name="ComprobanteDeposito">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClienteRef" Type="int" Nullable="false" />
+          <Property Name="UsuarioRef" Type="int" Nullable="false" />
+          <Property Name="NumeroDeposito" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TipoMonedaRef" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="float" Nullable="false" />
+          <Property Name="Fecha" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Motivo" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="TipoCedula">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCedula" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TipoMoneda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripción" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Valor" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoPermisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoCedulaRef" Type="int" Nullable="false" />
+          <Property Name="NumeroCedula" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="NombreCompleto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TipoPermisosRef" Type="int" Nullable="false" />
+          <Property Name="Contrasenna" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <Association Name="Pk_CedulaCliente">
+          <End Role="TipoCedula" Type="Self.TipoCedula" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCedula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="TipoCedulaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_CedulaUsuario">
+          <End Role="TipoCedula" Type="Self.TipoCedula" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCedula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoCedulaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_ClienteComprobanteDeposito">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="ClienteRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_PermisoUsuario">
+          <End Role="TipoPermisos" Type="Self.TipoPermisos" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPermisos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoPermisosRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_TipoMonedaComprobanteDeposito">
+          <End Role="TipoMoneda" Type="Self.TipoMoneda" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMoneda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="TipoMonedaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_UsuarioComprobanteDeposito">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="UsuarioRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegistroComprobantesModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ComprobanteDeposito" EntityType="Self.ComprobanteDeposito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCedula" EntityType="Self.TipoCedula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPermisos" EntityType="Self.TipoPermisos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Pk_CedulaCliente" Association="Self.Pk_CedulaCliente">
+            <End Role="TipoCedula" EntitySet="TipoCedula" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_CedulaUsuario" Association="Self.Pk_CedulaUsuario">
+            <End Role="TipoCedula" EntitySet="TipoCedula" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_ClienteComprobanteDeposito" Association="Self.Pk_ClienteComprobanteDeposito">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_PermisoUsuario" Association="Self.Pk_PermisoUsuario">
+            <End Role="TipoPermisos" EntitySet="TipoPermisos" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_TipoMonedaComprobanteDeposito" Association="Self.Pk_TipoMonedaComprobanteDeposito">
+            <End Role="TipoMoneda" EntitySet="TipoMoneda" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_UsuarioComprobanteDeposito" Association="Self.Pk_UsuarioComprobanteDeposito">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RegistroComprobantesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCedulaRef" Type="Int32" Nullable="false" />
+          <Property Name="NumeroCedula" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CorreoElectronico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TipoCedula" Relationship="Self.Pk_CedulaCliente" FromRole="Cliente" ToRole="TipoCedula" />
+          <NavigationProperty Name="ComprobanteDeposito" Relationship="Self.Pk_ClienteComprobanteDeposito" FromRole="Cliente" ToRole="ComprobanteDeposito" />
+        </EntityType>
+        <EntityType Name="ComprobanteDeposito">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClienteRef" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioRef" Type="Int32" Nullable="false" />
+          <Property Name="NumeroDeposito" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoMonedaRef" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Double" Nullable="false" />
+          <Property Name="Fecha" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Motivo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.Pk_ClienteComprobanteDeposito" FromRole="ComprobanteDeposito" ToRole="Cliente" />
+          <NavigationProperty Name="TipoMoneda" Relationship="Self.Pk_TipoMonedaComprobanteDeposito" FromRole="ComprobanteDeposito" ToRole="TipoMoneda" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Pk_UsuarioComprobanteDeposito" FromRole="ComprobanteDeposito" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoCedula">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCedula1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.Pk_CedulaCliente" FromRole="TipoCedula" ToRole="Cliente" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Pk_CedulaUsuario" FromRole="TipoCedula" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="TipoMoneda">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripción" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Valor" Type="Double" Nullable="false" />
+          <NavigationProperty Name="ComprobanteDeposito" Relationship="Self.Pk_TipoMonedaComprobanteDeposito" FromRole="TipoMoneda" ToRole="ComprobanteDeposito" />
+        </EntityType>
+        <EntityType Name="TipoPermisos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.Pk_PermisoUsuario" FromRole="TipoPermisos" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoCedulaRef" Type="Int32" Nullable="false" />
+          <Property Name="NumeroCedula" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompleto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Puesto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoPermisosRef" Type="Int32" Nullable="false" />
+          <Property Name="Contrasenna" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ComprobanteDeposito" Relationship="Self.Pk_UsuarioComprobanteDeposito" FromRole="Usuario" ToRole="ComprobanteDeposito" />
+          <NavigationProperty Name="TipoCedula" Relationship="Self.Pk_CedulaUsuario" FromRole="Usuario" ToRole="TipoCedula" />
+          <NavigationProperty Name="TipoPermisos" Relationship="Self.Pk_PermisoUsuario" FromRole="Usuario" ToRole="TipoPermisos" />
+        </EntityType>
+        <Association Name="Pk_CedulaCliente">
+          <End Role="TipoCedula" Type="Self.TipoCedula" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCedula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="TipoCedulaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_ClienteComprobanteDeposito">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="ClienteRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_TipoMonedaComprobanteDeposito">
+          <End Role="TipoMoneda" Type="Self.TipoMoneda" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoMoneda">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="TipoMonedaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_UsuarioComprobanteDeposito">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="ComprobanteDeposito" Type="Self.ComprobanteDeposito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ComprobanteDeposito">
+              <PropertyRef Name="UsuarioRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_CedulaUsuario">
+          <End Role="TipoCedula" Type="Self.TipoCedula" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCedula">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoCedulaRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pk_PermisoUsuario">
+          <End Role="TipoPermisos" Type="Self.TipoPermisos" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPermisos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoPermisosRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RegistroComprobantesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="ComprobanteDeposito" EntityType="Self.ComprobanteDeposito" />
+          <EntitySet Name="TipoCedula" EntityType="Self.TipoCedula" />
+          <EntitySet Name="TipoMoneda" EntityType="Self.TipoMoneda" />
+          <EntitySet Name="TipoPermisos" EntityType="Self.TipoPermisos" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="Pk_CedulaCliente" Association="Self.Pk_CedulaCliente">
+            <End Role="TipoCedula" EntitySet="TipoCedula" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_ClienteComprobanteDeposito" Association="Self.Pk_ClienteComprobanteDeposito">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_TipoMonedaComprobanteDeposito" Association="Self.Pk_TipoMonedaComprobanteDeposito">
+            <End Role="TipoMoneda" EntitySet="TipoMoneda" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_UsuarioComprobanteDeposito" Association="Self.Pk_UsuarioComprobanteDeposito">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="ComprobanteDeposito" EntitySet="ComprobanteDeposito" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_CedulaUsuario" Association="Self.Pk_CedulaUsuario">
+            <End Role="TipoCedula" EntitySet="TipoCedula" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="Pk_PermisoUsuario" Association="Self.Pk_PermisoUsuario">
+            <End Role="TipoPermisos" EntitySet="TipoPermisos" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RegistroComprobantesModelStoreContainer" CdmEntityContainer="RegistroComprobantesEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoCedulaRef" ColumnName="TipoCedulaRef" />
+                <ScalarProperty Name="NumeroCedula" ColumnName="NumeroCedula" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ComprobanteDeposito">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.ComprobanteDeposito">
+              <MappingFragment StoreEntitySet="ComprobanteDeposito">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClienteRef" ColumnName="ClienteRef" />
+                <ScalarProperty Name="UsuarioRef" ColumnName="UsuarioRef" />
+                <ScalarProperty Name="NumeroDeposito" ColumnName="NumeroDeposito" />
+                <ScalarProperty Name="TipoMonedaRef" ColumnName="TipoMonedaRef" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Motivo" ColumnName="Motivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCedula">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.TipoCedula">
+              <MappingFragment StoreEntitySet="TipoCedula">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoCedula1" ColumnName="TipoCedula" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoMoneda">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.TipoMoneda">
+              <MappingFragment StoreEntitySet="TipoMoneda">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPermisos">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.TipoPermisos">
+              <MappingFragment StoreEntitySet="TipoPermisos">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="RegistroComprobantesModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoCedulaRef" ColumnName="TipoCedulaRef" />
+                <ScalarProperty Name="NumeroCedula" ColumnName="NumeroCedula" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="TipoPermisosRef" ColumnName="TipoPermisosRef" />
+                <ScalarProperty Name="Contrasenna" ColumnName="Contrasenna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
