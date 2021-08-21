@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace AppControlComprobantes.MVVM.View
 {
-    public partial class PantallaUsuario : Form
+    public partial class PantallaCrearNuevoCliente : Form
     {
-        public PantallaUsuario()
+        public PantallaCrearNuevoCliente()
         {
             InitializeComponent();
-        }
-
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            var pInicio = (PantallaInicio)Tag;
-            pInicio.Show();
-            Close();
         }
     }
 }

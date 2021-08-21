@@ -1,7 +1,7 @@
 ﻿
 namespace AppControlComprobantes.MVVM.View
 {
-    partial class btnAtras
+    partial class PantallaUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,21 @@ namespace AppControlComprobantes.MVVM.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(btnAtras));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PantallaUsuario));
             this.lblBienvenida = new System.Windows.Forms.Label();
             this.btnNuevoUsuario = new System.Windows.Forms.Button();
             this.btnEditarUsuario = new System.Windows.Forms.Button();
             this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnNuevoCliente = new System.Windows.Forms.Button();
+            this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnEditarCliente = new System.Windows.Forms.Button();
+            this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnEliminarDeposito = new System.Windows.Forms.Button();
             this.btnEditarDeposito = new System.Windows.Forms.Button();
             this.btnNuevoDeposito = new System.Windows.Forms.Button();
-            this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -104,17 +104,18 @@ namespace AppControlComprobantes.MVVM.View
             this.panel1.Size = new System.Drawing.Size(227, 207);
             this.panel1.TabIndex = 4;
             // 
-            // button4
+            // btnAtras
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(12, 409);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(37, 29);
-            this.button4.TabIndex = 5;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnAtras.BackColor = System.Drawing.Color.White;
+            this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.Location = new System.Drawing.Point(12, 409);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(37, 29);
+            this.btnAtras.TabIndex = 5;
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // panel2
             // 
@@ -127,15 +128,15 @@ namespace AppControlComprobantes.MVVM.View
             this.panel2.Size = new System.Drawing.Size(231, 207);
             this.panel2.TabIndex = 6;
             // 
-            // btnNuevoCliente
+            // btnEliminarCliente
             // 
-            this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevoCliente.Location = new System.Drawing.Point(15, 15);
-            this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(200, 45);
-            this.btnNuevoCliente.TabIndex = 2;
-            this.btnNuevoCliente.Text = "Nuevo cliente";
-            this.btnNuevoCliente.UseVisualStyleBackColor = true;
+            this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCliente.Location = new System.Drawing.Point(15, 149);
+            this.btnEliminarCliente.Name = "btnEliminarCliente";
+            this.btnEliminarCliente.Size = new System.Drawing.Size(200, 45);
+            this.btnEliminarCliente.TabIndex = 4;
+            this.btnEliminarCliente.Text = "Eliminar cliente";
+            this.btnEliminarCliente.UseVisualStyleBackColor = true;
             // 
             // btnEditarCliente
             // 
@@ -146,6 +147,16 @@ namespace AppControlComprobantes.MVVM.View
             this.btnEditarCliente.TabIndex = 3;
             this.btnEditarCliente.Text = "Editar cliente";
             this.btnEditarCliente.UseVisualStyleBackColor = true;
+            // 
+            // btnNuevoCliente
+            // 
+            this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoCliente.Location = new System.Drawing.Point(15, 15);
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Size = new System.Drawing.Size(200, 45);
+            this.btnNuevoCliente.TabIndex = 2;
+            this.btnNuevoCliente.Text = "Nuevo cliente";
+            this.btnNuevoCliente.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -187,16 +198,6 @@ namespace AppControlComprobantes.MVVM.View
             this.btnNuevoDeposito.TabIndex = 2;
             this.btnNuevoDeposito.Text = "Nuevo depósito";
             this.btnNuevoDeposito.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminarCliente
-            // 
-            this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCliente.Location = new System.Drawing.Point(15, 149);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(200, 45);
-            this.btnEliminarCliente.TabIndex = 4;
-            this.btnEliminarCliente.Text = "Eliminar cliente";
-            this.btnEliminarCliente.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -241,7 +242,7 @@ namespace AppControlComprobantes.MVVM.View
             this.label4.Text = "Comprobantes de\r\ndepósito";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAtras
+            // PantallaUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -252,12 +253,13 @@ namespace AppControlComprobantes.MVVM.View
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblBienvenida);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "btnAtras";
+            this.Name = "PantallaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuario";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -274,7 +276,7 @@ namespace AppControlComprobantes.MVVM.View
         private System.Windows.Forms.Button btnEditarUsuario;
         private System.Windows.Forms.Button btnEliminarUsuario;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNuevoCliente;
         private System.Windows.Forms.Button btnEliminarCliente;

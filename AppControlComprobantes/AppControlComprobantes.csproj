@@ -96,6 +96,12 @@
     <Compile Include="MVVM\Model\Usuario.cs">
       <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\PantallaCrearNuevoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MVVM\View\PantallaCrearNuevoCliente.Designer.cs">
+      <DependentUpon>PantallaCrearNuevoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\PantallaInicio.cs">
       <SubType>Form</SubType>
     </Compile>

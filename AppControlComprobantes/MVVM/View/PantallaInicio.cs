@@ -16,5 +16,13 @@ namespace AppControlComprobantes.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            PantallaUsuario pUsuario = new PantallaUsuario();
+            pUsuario.Tag = this;
+            pUsuario.Show(this);
+            Hide();
+        }
     }
 }
