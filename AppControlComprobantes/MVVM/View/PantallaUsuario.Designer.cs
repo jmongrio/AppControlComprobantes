@@ -106,13 +106,14 @@ namespace AppControlComprobantes.MVVM.View
             // 
             // btnAtras
             // 
-            this.btnAtras.BackColor = System.Drawing.Color.White;
+            this.btnAtras.BackColor = System.Drawing.SystemColors.Control;
             this.btnAtras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAtras.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
-            this.btnAtras.Location = new System.Drawing.Point(12, 409);
+            this.btnAtras.Location = new System.Drawing.Point(12, 398);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(37, 29);
+            this.btnAtras.Size = new System.Drawing.Size(60, 40);
             this.btnAtras.TabIndex = 5;
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
@@ -157,6 +158,7 @@ namespace AppControlComprobantes.MVVM.View
             this.btnNuevoCliente.TabIndex = 2;
             this.btnNuevoCliente.Text = "Nuevo cliente";
             this.btnNuevoCliente.UseVisualStyleBackColor = true;
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
             // panel3
             // 
