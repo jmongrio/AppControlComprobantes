@@ -55,7 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ModelView\ModelViewCliente.cs" />
+    <Compile Include="MVVM\ModelView\ModelViewComprobanteDeposito.cs" />
     <Compile Include="MVVM\ModelView\Seguridad.cs" />
+    <Compile Include="MVVM\ModelView\ModelViewTipoCedula.cs" />
+    <Compile Include="MVVM\ModelView\ModelViewTipoMoneda.cs" />
+    <Compile Include="MVVM\ModelView\ModelViewTipoPermisos.cs" />
+    <Compile Include="MVVM\ModelView\ModelViewUsuario.cs" />
     <Compile Include="MVVM\Model\Cliente.cs">
       <DependentUpon>ComprobantesEntidad.tt</DependentUpon>
     </Compile>
