@@ -164,6 +164,7 @@ namespace AppControlComprobantes.MVVM.View
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Controls.Add(this.cmbTipoCedula);
             this.panel1.Controls.Add(this.txtNumeroCedula);
             this.panel1.Controls.Add(this.label2);
@@ -220,6 +221,7 @@ namespace AppControlComprobantes.MVVM.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnAtras);
             this.Controls.Add(this.btnAgregarNuevoCliente);
