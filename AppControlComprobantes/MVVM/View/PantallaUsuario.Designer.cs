@@ -148,6 +148,7 @@ namespace AppControlComprobantes.MVVM.View
             this.btnEditarCliente.TabIndex = 3;
             this.btnEditarCliente.Text = "Editar cliente";
             this.btnEditarCliente.UseVisualStyleBackColor = true;
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
             // 
             // btnNuevoCliente
             // 
