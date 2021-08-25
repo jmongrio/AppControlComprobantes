@@ -31,5 +31,13 @@ namespace AppControlComprobantes.MVVM.View
             pCliente.Show(this);
             Hide();
         }
+
+        private void btnEditarCliente_Click(object sender, EventArgs e)
+        {
+            PantallaEditarCliente pEditar = new PantallaEditarCliente();
+            pEditar.Tag = this;
+            pEditar.Show(this);
+            Hide();
+        }
     }
 }
