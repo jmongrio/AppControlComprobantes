@@ -114,6 +114,12 @@
     <Compile Include="MVVM\View\PantallaUsuario.Designer.cs">
       <DependentUpon>PantallaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\PantallaEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MVVM\View\PantallaEditarCliente.Designer.cs">
+      <DependentUpon>PantallaEditarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MVVM\View\PantallaCrearNuevoCliente.resx">
@@ -124,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MVVM\View\PantallaUsuario.resx">
       <DependentUpon>PantallaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MVVM\View\PantallaEditarCliente.resx">
+      <DependentUpon>PantallaEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
