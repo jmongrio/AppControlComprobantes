@@ -37,7 +37,6 @@ namespace AppControlComprobantes.MVVM.View
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAtras = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnEliminarCliente = new System.Windows.Forms.Button();
             this.btnEditarCliente = new System.Windows.Forms.Button();
             this.btnNuevoCliente = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -140,27 +139,12 @@ namespace AppControlComprobantes.MVVM.View
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnEliminarCliente);
             this.panel2.Controls.Add(this.btnEditarCliente);
             this.panel2.Controls.Add(this.btnNuevoCliente);
             this.panel2.Location = new System.Drawing.Point(283, 171);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(231, 207);
             this.panel2.TabIndex = 6;
-            // 
-            // btnEliminarCliente
-            // 
-            this.btnEliminarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btnEliminarCliente.FlatAppearance.BorderSize = 0;
-            this.btnEliminarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarCliente.Location = new System.Drawing.Point(15, 149);
-            this.btnEliminarCliente.Name = "btnEliminarCliente";
-            this.btnEliminarCliente.Size = new System.Drawing.Size(200, 45);
-            this.btnEliminarCliente.TabIndex = 4;
-            this.btnEliminarCliente.Text = "Eliminar cliente";
-            this.btnEliminarCliente.UseVisualStyleBackColor = false;
             // 
             // btnEditarCliente
             // 
@@ -169,13 +153,13 @@ namespace AppControlComprobantes.MVVM.View
             this.btnEditarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarCliente.ForeColor = System.Drawing.Color.White;
-            this.btnEditarCliente.Location = new System.Drawing.Point(15, 82);
+            this.btnEditarCliente.Location = new System.Drawing.Point(15, 116);
             this.btnEditarCliente.Name = "btnEditarCliente";
             this.btnEditarCliente.Size = new System.Drawing.Size(200, 45);
             this.btnEditarCliente.TabIndex = 3;
-            this.btnEditarCliente.Text = "Editar cliente";
+            this.btnEditarCliente.Text = "Lista de clientes";
             this.btnEditarCliente.UseVisualStyleBackColor = false;
-            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click);
+            this.btnEditarCliente.Click += new System.EventHandler(this.btnEditarCliente_Click_1);
             // 
             // btnNuevoCliente
             // 
@@ -184,7 +168,7 @@ namespace AppControlComprobantes.MVVM.View
             this.btnNuevoCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoCliente.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoCliente.Location = new System.Drawing.Point(15, 15);
+            this.btnNuevoCliente.Location = new System.Drawing.Point(15, 44);
             this.btnNuevoCliente.Name = "btnNuevoCliente";
             this.btnNuevoCliente.Size = new System.Drawing.Size(200, 45);
             this.btnNuevoCliente.TabIndex = 2;
@@ -342,7 +326,6 @@ namespace AppControlComprobantes.MVVM.View
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnNuevoCliente;
-        private System.Windows.Forms.Button btnEliminarCliente;
         private System.Windows.Forms.Button btnEditarCliente;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnEliminarDeposito;

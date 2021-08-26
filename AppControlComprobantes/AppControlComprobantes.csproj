@@ -108,6 +108,12 @@
     <Compile Include="MVVM\View\PantallaInicio.Designer.cs">
       <DependentUpon>PantallaInicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\PantallaListaClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MVVM\View\PantallaListaClientes.Designer.cs">
+      <DependentUpon>PantallaListaClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\PantallaUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MVVM\View\PantallaInicio.resx">
       <DependentUpon>PantallaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MVVM\View\PantallaListaClientes.resx">
+      <DependentUpon>PantallaListaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MVVM\View\PantallaUsuario.resx">
       <DependentUpon>PantallaUsuario.cs</DependentUpon>
