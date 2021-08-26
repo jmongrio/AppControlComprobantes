@@ -25,12 +25,12 @@ namespace AppControlComprobantes.MVVM.View
             Hide();
         }
 
+        #region btnClose
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        #region btnClose
         private void btnClose_MouseEnter(object sender, EventArgs e)
         {
             btnClose.BackColor = Color.FromArgb(80, 80, 80);
@@ -51,6 +51,11 @@ namespace AppControlComprobantes.MVVM.View
         private void btnMinimize_MouseLeave(object sender, EventArgs e)
         {
             btnMinimize.BackColor = Color.FromArgb(40, 40, 40);
+        }        
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
         #endregion
     }
