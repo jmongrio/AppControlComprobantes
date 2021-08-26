@@ -204,7 +204,7 @@ namespace AppControlComprobantes.MVVM.View
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.txtNombreCompleto);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(98, 78);
+            this.panel1.Location = new System.Drawing.Point(103, 78);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(592, 310);
             this.panel1.TabIndex = 18;
