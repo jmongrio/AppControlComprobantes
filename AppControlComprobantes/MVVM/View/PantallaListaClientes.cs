@@ -17,14 +17,6 @@ namespace AppControlComprobantes.MVVM.View
             InitializeComponent();
         }
 
-        private void btnAgregarCliente_Click(object sender, EventArgs e)
-        {
-            PantallaCrearNuevoCliente pCliente = new PantallaCrearNuevoCliente();
-            pCliente.Tag = this;
-            pCliente.Show(this);
-            Hide();
-        }
-
         private void btnAtras_Click(object sender, EventArgs e)
         {
             var pUsuaro = (PantallaUsuario)Tag;
@@ -33,6 +25,14 @@ namespace AppControlComprobantes.MVVM.View
         }
 
         #region btnAgregarCliente
+        private void btnAgregarCliente_Click(object sender, EventArgs e)
+        {
+            PantallaCrearNuevoCliente pCliente = new PantallaCrearNuevoCliente();
+            pCliente.Tag = this;
+            pCliente.Show(this);
+            Hide();
+        }
+
         private void btnAgregarCliente_MouseEnter(object sender, EventArgs e)
         {
             btnAgregarCliente.BackColor = Color.FromArgb(80, 80, 80);
