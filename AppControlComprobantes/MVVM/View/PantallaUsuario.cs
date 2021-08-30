@@ -61,11 +61,5 @@ namespace AppControlComprobantes.MVVM.View
             pListarClientes.Show(this);
             Hide();
         }
-
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
     }
 }
