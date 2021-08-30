@@ -261,6 +261,7 @@ namespace AppControlComprobantes.MVVM.View
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 31);
             this.panel4.TabIndex = 24;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveWindows);
             // 
             // label8
             // 
